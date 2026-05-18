@@ -1,6 +1,8 @@
-﻿# AI 个性化小说推荐与阅读助手系统
+# AI 个性化小说推荐与阅读助手系统
 
 面向免费阅读和网文重度用户的 AI 阅读助手原型，围绕“选书试错成本高、简介与正文质量不一致、长篇追更容易忘剧情”等痛点，提供个性化推荐、无剧透试读报告和剧情级前情回顾。
+
+![AI novel assistant demo](docs/images/demo.svg)
 
 ## 核心能力
 
@@ -17,7 +19,7 @@ Python / JavaScript / LLM API / 推荐系统 / 用户画像 / HTTP Server
 
 ## 目录结构
 
-`	ext
+```text
 .
 ├── app/
 │   ├── server.py                 # HTTP API 服务
@@ -30,27 +32,27 @@ Python / JavaScript / LLM API / 推荐系统 / 用户画像 / HTTP Server
 ├── static/                        # 前端页面
 ├── scripts/                       # 辅助脚本
 └── run.py                         # 启动入口
-`
+```
 
 ## 快速开始
 
-`ash
+```bash
 python run.py
-`
+```
 
 打开：
 
-`	ext
+```text
 http://127.0.0.1:8000/
-`
+```
 
 如需启用 MiniMax：
 
-`powershell
-="your_api_key"
+```powershell
+$env:MINIMAX_API_KEY="your_api_key"
 python run.py
-`
+```
 
 ## 数据边界
 
-公开仓库不包含真实番茄书架画像、小说正文、LLM cache 和 API Key。pp/txt_library/ 只保留占位文件，用户需要放入自己有权阅读的 TXT 文件后再运行试读和前情回顾功能。
+公开仓库不包含真实番茄书架画像、小说正文、LLM cache 和 API Key。`app/txt_library/` 只保留占位文件，用户需要放入自己有权阅读的 TXT 文件后再运行试读和前情回顾功能。
