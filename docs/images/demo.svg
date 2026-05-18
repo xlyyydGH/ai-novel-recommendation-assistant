@@ -1,0 +1,38 @@
+<svg width="1280" height="760" viewBox="0 0 1280 760" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <rect width="1280" height="760" fill="#F6F3EF"/>
+  <rect x="38" y="34" width="1204" height="692" rx="22" fill="#FFFFFF" stroke="#E4D8CF"/>
+  <text x="78" y="88" fill="#1E2328" font-family="Microsoft YaHei, Arial" font-size="30" font-weight="700">AI 小说试读决策与续读恢复助手</text>
+  <text x="78" y="122" fill="#66717C" font-family="Microsoft YaHei, Arial" font-size="17">少踩烂书，快速接回断更书；推荐、试读和剧情回顾合在同一条阅读链路里。</text>
+  <rect x="78" y="156" width="166" height="44" rx="22" fill="#B7412C"/>
+  <text x="119" y="184" fill="#FFFFFF" font-family="Microsoft YaHei, Arial" font-size="17" font-weight="700">试读判定</text>
+  <rect x="260" y="156" width="166" height="44" rx="22" fill="#FDF7F2" stroke="#E4D8CF"/>
+  <text x="301" y="184" fill="#7A4B3A" font-family="Microsoft YaHei, Arial" font-size="17" font-weight="700">续读恢复</text>
+  <rect x="442" y="156" width="166" height="44" rx="22" fill="#FDF7F2" stroke="#E4D8CF"/>
+  <text x="474" y="184" fill="#7A4B3A" font-family="Microsoft YaHei, Arial" font-size="17" font-weight="700">个性化推荐</text>
+
+  <rect x="78" y="238" width="540" height="410" rx="18" fill="#FDF7F2" stroke="#E4D8CF"/>
+  <text x="110" y="282" fill="#B7412C" font-family="Microsoft YaHei, Arial" font-size="15" font-weight="700">正文级阅读决策</text>
+  <text x="110" y="316" fill="#1E2328" font-family="Microsoft YaHei, Arial" font-size="25" font-weight="700">前三章试读报告</text>
+  <rect x="110" y="342" width="214" height="38" rx="19" fill="#FFFFFF" stroke="#E4D8CF"/>
+  <text x="132" y="367" fill="#66717C" font-family="Microsoft YaHei, Arial" font-size="15">钩子强度：强</text>
+  <rect x="338" y="342" width="214" height="38" rx="19" fill="#FFFFFF" stroke="#E4D8CF"/>
+  <text x="360" y="367" fill="#66717C" font-family="Microsoft YaHei, Arial" font-size="15">新鲜度：待验证</text>
+  <text x="110" y="418" fill="#1E2328" font-family="Microsoft YaHei, Arial" font-size="18" font-weight="700">前三章讲了什么</text>
+  <text x="110" y="450" fill="#4B5563" font-family="Microsoft YaHei, Arial" font-size="16">开篇快速抛出游戏入侵和机缘争夺设定，主角需要在</text>
+  <text x="110" y="478" fill="#4B5563" font-family="Microsoft YaHei, Arial" font-size="16">有限信息下抢占关键节点，冲突建立较快。</text>
+  <text x="110" y="526" fill="#1E2328" font-family="Microsoft YaHei, Arial" font-size="18" font-weight="700">是否值得继续</text>
+  <text x="110" y="558" fill="#4B5563" font-family="Microsoft YaHei, Arial" font-size="16">适合偏好快节奏、强设定、主角行动力明确的读者；</text>
+  <text x="110" y="586" fill="#4B5563" font-family="Microsoft YaHei, Arial" font-size="16">建议继续读到第 10 章验证爽点是否稳定兑现。</text>
+
+  <rect x="662" y="238" width="540" height="188" rx="18" fill="#FFFFFF" stroke="#E4D8CF"/>
+  <text x="694" y="282" fill="#0E7C7B" font-family="Microsoft YaHei, Arial" font-size="15" font-weight="700">续读恢复</text>
+  <text x="694" y="316" fill="#1E2328" font-family="Microsoft YaHei, Arial" font-size="23" font-weight="700">读到第 300 章前情回顾</text>
+  <text x="694" y="356" fill="#4B5563" font-family="Microsoft YaHei, Arial" font-size="16">主角形象、当前主线、阶段冲突和接下来阅读入口会被压缩</text>
+  <text x="694" y="384" fill="#4B5563" font-family="Microsoft YaHei, Arial" font-size="16">成一段可读备忘，不把内部章节记忆块暴露给用户。</text>
+
+  <rect x="662" y="460" width="540" height="188" rx="18" fill="#FFFFFF" stroke="#E4D8CF"/>
+  <text x="694" y="504" fill="#B9862F" font-family="Microsoft YaHei, Arial" font-size="15" font-weight="700">可解释推荐</text>
+  <text x="694" y="538" fill="#1E2328" font-family="Microsoft YaHei, Arial" font-size="23" font-weight="700">书架画像 + 候选重排序</text>
+  <text x="694" y="578" fill="#4B5563" font-family="Microsoft YaHei, Arial" font-size="16">高热爱样本用于建模，低网页进度只作为待验证信号，避免</text>
+  <text x="694" y="606" fill="#4B5563" font-family="Microsoft YaHei, Arial" font-size="16">把未同步进度误伤成负反馈。</text>
+</svg>
