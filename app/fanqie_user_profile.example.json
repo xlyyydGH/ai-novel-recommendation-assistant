@@ -1,0 +1,15 @@
+﻿{
+  "user_id": "demo_user",
+  "source": "sanitized_sample",
+  "books": [
+    {
+      "book_id": "demo_001",
+      "title": "示例书籍",
+      "status": "reading",
+      "progress_text": "读到第 30 章",
+      "progress_ratio": 0.35,
+      "inferred_genres": ["悬疑", "规则怪谈"],
+      "inferred_tags": ["强悬念", "快节奏"]
+    }
+  ]
+}

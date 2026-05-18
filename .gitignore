@@ -1,0 +1,11 @@
+﻿.env
+.venv/
+__pycache__/
+*.py[cod]
+.idea/
+fanqie_user_profile.json
+app/fanqie_user_profile.json
+app/fanqie_feedback.json
+app/llm_cache/
+app/chapter_memory.json
+app/txt_library/*.txt

@@ -1,0 +1,170 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>AI 小说试读决策与续读恢复助手</title>
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <div class="app-shell" data-view="trial">
+      <header class="topbar">
+        <div>
+          <h1>AI 小说试读决策与续读恢复助手</h1>
+          <p id="userSubtitle">少踩烂书，快速接回断更书。</p>
+        </div>
+        <div class="top-actions">
+          <label class="user-select">
+            <span>用户</span>
+            <select id="userSelect"></select>
+          </label>
+          <button id="refreshBtn" class="icon-button" title="刷新推荐">刷新</button>
+        </div>
+      </header>
+
+      <nav class="view-tabs" aria-label="主要视图">
+        <button class="active" data-view="trial">试读判定</button>
+        <button data-view="recovery">续读恢复</button>
+        <button data-view="recommend">个性化推荐</button>
+      </nav>
+
+      <main class="workspace">
+        <section class="left-panel">
+          <section class="profile-band view-panel view-recommend" aria-label="用户画像">
+            <div>
+              <span class="eyebrow">近期画像</span>
+              <h2 id="profileTitle">短期兴趣</h2>
+            </div>
+            <div class="metric-grid">
+              <div class="metric">
+                <span>偏好题材</span>
+                <strong id="genreMetric">--</strong>
+              </div>
+              <div class="metric">
+                <span>热爱书籍</span>
+                <strong id="lovedMetric">--</strong>
+              </div>
+              <div class="metric">
+                <span>相似读者</span>
+                <strong id="readerMetric">--</strong>
+              </div>
+            </div>
+            <div id="profileTags" class="tag-row"></div>
+          </section>
+
+          <section class="fanqie-panel view-panel view-recommend" aria-label="真实番茄书架内推荐">
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">真实书架</span>
+                <h2>书架内待验证推荐</h2>
+              </div>
+              <div id="fanqieCount" class="muted"></div>
+            </div>
+            <div id="fanqieProfile" class="fanqie-content empty-state">正在读取导入后的番茄书架画像...</div>
+          </section>
+
+          <section class="public-recall-panel view-panel view-recommend" aria-label="书架外公开候选召回">
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">公开召回</span>
+                <h2>书架外公开候选池</h2>
+              </div>
+              <div id="publicRecallCount" class="muted"></div>
+            </div>
+            <div id="publicRecallContent" class="public-recall-content empty-state">正在根据你的高热爱画像召回公开候选...</div>
+          </section>
+
+          <section class="txt-demo-panel view-panel view-trial view-recovery" aria-label="TXT 正文级试读分析">
+            <div class="section-head txt-head">
+              <div>
+                <span class="eyebrow">正文级阅读决策</span>
+                <h2>新书三章止损与老书续读恢复</h2>
+                <p class="section-note mode-trial">读前三章，判断正文是否兑现简介、主角是否讨喜、节奏是否值得继续追。</p>
+                <p class="section-note mode-recovery">输入读到第几章，恢复主角状态、剧情进度和下一章续读抓手。</p>
+              </div>
+              <div class="txt-controls txt-story-picker">
+                <label>
+                  <span>选择本地 TXT</span>
+                  <select id="txtStorySelect" aria-label="选择 TXT"></select>
+                </label>
+              </div>
+              <div class="txt-controls mode-trial">
+                <label>
+                  <span>从第几章开始</span>
+                  <input id="txtStartInput" type="number" min="1" value="1" />
+                </label>
+                <label>
+                  <span>试读章数</span>
+                  <input id="txtCountInput" type="number" min="1" max="20" value="3" />
+                </label>
+                <button id="txtAnalyzeBtn" class="small-button">本地试读判定</button>
+                <button id="txtLlmBtn" class="primary-button">MiniMax 深度判定</button>
+              </div>
+              <div class="txt-controls mode-recovery">
+                <label>
+                  <span>我读到第几章</span>
+                  <input id="txtUptoInput" type="number" min="1" value="300" />
+                </label>
+                <button id="txtProgressBtn" class="primary-button">生成续读恢复</button>
+              </div>
+            </div>
+            <div id="txtStoryReport" class="txt-report empty-state mode-trial">正在读取本地 TXT，并生成正文级试读判定...</div>
+            <div id="txtLlmReport" class="txt-llm-report empty-state mode-trial">MiniMax 深度判定未运行。填写 Key 后，可让 M2.7 基于所选章节判断“值不值得继续看”。</div>
+            <div id="txtProgressRecap" class="txt-progress-recap empty-state mode-recovery">输入“读到第几章”后，可以生成 1-N 章续读恢复，不会把几百章原文一次性塞给模型。</div>
+          </section>
+
+          <details class="memory-panel memory-advanced" hidden>
+            <summary>
+              <span>
+                <b>高级：章节记忆库</b>
+                <small>用于展示系统如何把单章正文沉淀为事件、人物和伏笔，默认收起。</small>
+              </span>
+              <span id="memoryCount" class="muted"></span>
+            </summary>
+            <div class="memory-form">
+              <div class="memory-row">
+                <label>
+                  <span>章节序号</span>
+                  <input id="chapterIndexInput" type="number" min="1" value="1" />
+                </label>
+                <label>
+                  <span>章节标题</span>
+                  <input id="chapterTitleInput" type="text" placeholder="第 1 章" />
+                </label>
+              </div>
+              <textarea id="chapterTextInput" placeholder="粘贴一章合法来源正文，系统会抽取剧情摘要、人物、伏笔和继续阅读提示。"></textarea>
+              <button id="analyzeChapterBtn" class="primary-button">生成章节记忆</button>
+            </div>
+            <div id="memoryContent" class="memory-content empty-state">选择书籍或粘贴单章正文后，这里会显示可沉淀到剧情回顾里的章节记忆。</div>
+          </details>
+
+        </section>
+
+        <aside class="right-panel">
+          <section class="detail-panel view-panel view-recommend" aria-label="候选详情">
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">候选判断</span>
+                <h2 id="detailTitle">选择一本候选</h2>
+              </div>
+            </div>
+            <div id="bookDetail" class="detail-content empty-state">点击书架内或书架外候选后，这里会展示推荐理由、试读风险和跳转入口。</div>
+          </section>
+
+          <section class="assistant-panel view-panel view-recommend" aria-label="AI 阅读助手">
+            <div class="section-head">
+              <div>
+                <span class="eyebrow">追更辅助</span>
+                <h2>AI 阅读助手</h2>
+              </div>
+              <button id="recapBtn" class="small-button">续读恢复</button>
+            </div>
+            <div id="assistantContent" class="assistant-content empty-state">书架内候选展示续读恢复，书架外候选展示无剧透选书计划；导入章节后会升级为剧情级恢复。</div>
+          </section>
+
+        </aside>
+      </main>
+    </div>
+    <script src="/static/app.js"></script>
+  </body>
+</html>
