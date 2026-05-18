@@ -9,3 +9,4 @@ app/fanqie_feedback.json
 app/llm_cache/
 app/chapter_memory.json
 app/txt_library/*.txt
+*.log
